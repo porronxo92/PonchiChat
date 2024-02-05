@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log('Cookie usuario: ', user)
   if (user) {
     modal.style.display = 'none'
+    usuarios_conected.innerHTML += `${user}`
+
     socket.emit('user_connected', user)
   }
 })
@@ -25,6 +27,8 @@ modalform.addEventListener('submit', (e) => {
     alert('Por favor, rellene el campo de usuario.')
   } else {
     localStorage.setItem('username', username.value)
+    usuarios_conected.innerHTML += `${username.value}`
+
     socket.emit('user_connected', username.value)
     modal.style.display = 'none'
   }
@@ -84,6 +88,5 @@ socket.on('chat_message', (msg, usuario, fecha_creacion, isRecived) => {
   }
 })
 socket.on('user_connected', (username) => {
-  usuarios_conected.innerHTML = `${username} `
   console.log(username)
 })
