@@ -1,0 +1,190 @@
+:root {
+    --blanco: #ccc;
+    --oscuro: #212121;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    --secundario--claro: #87f0fcd8;
+    --gris: #757575;
+    --grisClaro: #DFE9F3;
+}
+/*  Globales **/
+html {
+    box-sizing: border-box; /* Hack para Box Model **/
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-size: 16px; /* 1rem = 10px */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: var(--blanco);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 3.6rem;
+}
+
+
+#chat{
+    border: 0.2rem solid #ccc;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    width: 60%;
+    height: 100%;
+    position: relative;
+    background: var(--oscuro);
+}
+
+.header_chat{
+  top: 0;
+    height: 3rem;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: var(--primario);
+    padding: 0 1rem;
+    
+}
+
+.header_chat > strong, p{
+  color: var(--oscuro);
+}
+
+.footer_chat{
+    bottom: 0;
+    height: 3rem;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+.form_footer{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: var(--gris);
+}
+
+.input{
+    border-radius: 9rem;
+    border: solid 0.2rem var(--gris);
+    padding: 0.5rem;
+    width: 100%;
+    margin: 0.3rem;
+}
+
+.input:focus{
+    outline: 0;
+}
+
+.button{
+    background: var(--primario);
+    color: #000;
+    font-size: 1rem;
+    border-radius: 2rem;
+    padding: 0 1rem ;
+    border: solid var(--gris);
+    margin: 0.3rem;
+}
+.button:hover{
+    background: var(--secundario);
+}
+
+.mensajes_usuarios{
+  margin: 4rem 1rem 0 1rem;
+  padding: 0;
+    overflow-y: scroll;
+    height: 100%;
+    scroll-behavior: smooth;
+    padding-bottom: 7rem;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column; 
+}
+  
+.chat-bubble {
+  float: left;
+  background-color: #f0f0f0;
+  border-radius: 1rem;
+  padding: 1rem;
+  
+  min-width: 15rem;
+  max-width: 70%; /* O cualquier ancho máximo que desees */
+}
+
+.chat-bubble_user {
+  float: left;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.chat-bubble_texto {
+  word-wrap: break-word; /* Hacer que el texto haga saltos de línea */
+  overflow-wrap: break-word; /* También es útil para garantizar el salto de línea */
+}
+
+.chat-bubble_hora {
+  float: right;
+  font-size: 0.7rem;
+  clear: both; /* Limpiar el float para que el siguiente elemento esté en la siguiente línea */
+  font-weight: bold;
+}
+
+.messages_row{
+  margin-bottom: 1rem;
+}
+
+  
+  /* Estilos para el elemento <li> cuando es enviado */
+  .chat-bubble-sent {
+    background-color: var(--secundario--claro); /* Color de fondo para mensajes enviados */
+    float: right;
+  }
+  
+  /* Estilos para el elemento <li> cuando es recibido */
+  .chat-bubble-received {
+    background-color:var(--grisClaro); /* Color de fondo para mensajes recibidos */
+    float: left;
+  }
+  
+
+  
+  /* Estilos para la modal */
+  .modal {
+    display: flex; 
+    position: fixed; /* Se posiciona encima de todo */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    z-index: 1; /* Asegura que esté por encima de todo */
+  }
+  
+  .modal-content {
+    background-color: var(--blanco);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+    border-radius: 2rem;
+    width: 25rem;
+    height: 20rem;
+  }
+
+  .modal-content > form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .modal-content > form > button{
+    padding: 0.3rem;
+  }
