@@ -85,16 +85,16 @@ io.on('connection', async (socket) => {
     }
   })
 
-  // if (!socket.recovered) {
-  //   //Whether the connection state was successfully recovered during the last reconnection.
-  //   //recuperar los mensajes anteriores al ultimo
-  //   console.log('Recuperar mensajes sin conexion')
-  //   try {
-  //     await emitAllMessages(socket)
-  //   } catch (e) {
-  //     console.error('Error recovered:', e.message)
-  //   }
-  // }
+  if (!socket.recovered) {
+    //Whether the connection state was successfully recovered during the last reconnection.
+    //recuperar los mensajes anteriores al ultimo
+    console.log('Recuperar mensajes sin conexion')
+    try {
+      await emitAllMessages(socket)
+    } catch (e) {
+      console.error('Error recovered:', e.message)
+    }
+  }
 })
 
 async function emitAllMessages(socket, user_connected) {
